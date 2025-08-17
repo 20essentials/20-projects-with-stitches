@@ -32,7 +32,7 @@ button {
 
 @font-face {
   font-family: 'AnotherDanger';
-  src: url('./assets/AnotherDanger.ttf') format('truetype');
+  src: url('/assets/AnotherDanger.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
