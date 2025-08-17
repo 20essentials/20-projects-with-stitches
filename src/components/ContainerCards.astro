@@ -1,0 +1,252 @@
+---
+import { baseUrl } from '@/utils/functions';
+
+const arrayCards = [
+  {
+    title: 'Rodadores',
+    repo: 'https://github.com/20essentials/project-000-369',
+    web: 'https://20essentials.github.io/project-000-369/',
+    localImage: '/assets/n369.avif',
+    id: '001'
+  },
+  {
+    title: 'Retri',
+    repo: 'https://github.com/20essentials/project-000-386',
+    web: 'https://20essentials.github.io/project-000-386/',
+    localImage: '/assets/n386.avif',
+    id: '002'
+  },
+  {
+    title: 'Box Hover',
+    repo: 'https://github.com/20essentials/project-000-419',
+    web: 'https://20essentials.github.io/project-000-419/',
+    localImage: '/assets/n419.avif',
+    id: '003'
+  },
+  {
+    title: 'Text neon',
+    repo: 'https://github.com/20essentials/project-000-422',
+    web: 'https://20essentials.github.io/project-000-422/',
+    localImage: '/assets/n422.avif',
+    id: '004'
+  },
+  {
+    title: 'Rufas',
+    repo: 'https://github.com/20essentials/project-000-437',
+    web: 'https://20essentials.github.io/project-000-437/',
+    localImage: '/assets/n437.avif',
+    id: '005'
+  },
+  {
+    title: 'Lem',
+    repo: 'https://github.com/20essentials/project-000-899',
+    web: 'https://20essentials.github.io/project-000-899/',
+    localImage: '/assets/n899.avif',
+    id: '006'
+  },
+  {
+    title: 'Prutro',
+    repo: 'https://github.com/20essentials/project-000-447',
+    web: 'https://20essentials.github.io/project-000-447/',
+    localImage: '/assets/n447.avif',
+    id: '007'
+  },
+  {
+    title: 'Rem',
+    repo: 'https://github.com/20essentials/project-000-453',
+    web: 'https://20essentials.github.io/project-000-453/',
+    localImage: '/assets/n453.avif',
+    id: '008'
+  },
+  {
+    title: 'Barbabruna',
+    repo: 'https://github.com/20essentials/project-000-402',
+    web: 'https://20essentials.github.io/project-000-402/',
+    localImage: '/assets/n402.avif',
+    id: '009'
+  },
+  {
+    title: 'Manga',
+    repo: 'https://github.com/20essentials/project-000-462',
+    web: 'https://20essentials.github.io/project-000-462/',
+    localImage: '/assets/n462.avif',
+    id: '010'
+  },
+  {
+    title: 'Sts',
+    repo: 'https://github.com/20essentials/project-000-467',
+    web: 'https://20essentials.github.io/project-000-467/',
+    localImage: '/assets/n467.avif',
+    id: '011'
+  },
+  {
+    title: 'Rain Bg',
+    repo: 'https://github.com/20essentials/project-000-476',
+    web: 'https://20essentials.github.io/project-000-476/',
+    localImage: '/assets/n476.avif',
+    id: '012'
+  },
+  {
+    title: 'Retro',
+    repo: 'https://github.com/20essentials/project-000-483',
+    web: 'https://20essentials.github.io/project-000-483/',
+    localImage: '/assets/n483.avif',
+    id: '013'
+  },
+  {
+    title: 'Waves',
+    repo: 'https://github.com/20essentials/project-000-490',
+    web: 'https://20essentials.github.io/project-000-490/',
+    localImage: '/assets/n490.avif',
+    id: '014'
+  },
+  {
+    title: 'Glhf',
+    repo: 'https://github.com/20essentials/project-000-396',
+    web: 'https://20essentials.github.io/project-000-396/',
+    localImage: '/assets/n396.avif',
+    id: '015'
+  },
+  {
+    title: 'Tuta',
+    repo: 'https://github.com/20essentials/project-000-491',
+    web: 'https://20essentials.github.io/project-000-491/',
+    localImage: '/assets/n491.avif',
+    id: '016'
+  },
+  {
+    title: 'Tiras',
+    repo: 'https://github.com/20essentials/project-000-498',
+    web: 'https://20essentials.github.io/project-000-498/',
+    localImage: '/assets/n498.avif',
+    id: '017'
+  },
+  {
+    title: 'Zoids: 25 Years',
+    repo: 'https://github.com/20essentials/project-000-516',
+    web: 'https://20essentials.github.io/project-000-516/',
+    localImage: '/assets/n516.avif',
+    id: '018'
+  },
+  {
+    title: 'Wave Title',
+    repo: 'https://github.com/20essentials/project-000-526',
+    web: 'https://20essentials.github.io/project-000-526/',
+    localImage: '/assets/n526.avif',
+    id: '019'
+  },
+  {
+    title: 'Currying',
+    repo: 'https://github.com/20essentials/project-000-457',
+    web: 'https://20essentials.github.io/project-000-457/',
+    localImage: '/assets/n457.avif',
+    id: '020'
+  },
+  {
+    title: 'Currying',
+    repo: 'https://github.com/20essentials/project-000-457',
+    web: 'https://20essentials.github.io/project-000-457/',
+    localImage: '/assets/n457.avif',
+    id: '020'
+  },
+];
+---
+
+<script>
+  import gsap from 'gsap';
+  import Flip from 'gsap/Flip';
+  gsap.registerPlugin(Flip);
+  const $ = <T extends Element = HTMLElement>(selector: string) =>
+    document.querySelector<T>(selector);
+  const $$ = <T extends Element = HTMLElement>(selector: string) =>
+    document.querySelectorAll<T>(selector);
+  const grid = $<HTMLDivElement>('#grid-demo');
+  // const items = gsap.utils.toArray<HTMLElement>('.rg_item');
+  const items = $$<HTMLElement>('.rg_item');
+
+  $<HTMLButtonElement>('.rg_btn')?.addEventListener('click', () => {
+    const state = Flip.getState(items);
+    for (let i = items.length; i >= 0; i--) {
+      grid?.appendChild(grid.children[(Math.random() * i) | 0]);
+    }
+    Flip.from(state, {
+      absolute: true
+    });
+  });
+</script>
+
+<section class='am-section'>
+  <aside id='grid-demo'>
+    <button class='rg_btn' data-rg='grid-demo'>
+      <div class='am-text-button'>Shuffle</div>
+    </button>
+    {
+      arrayCards.map(({ id, localImage, repo, title, web }) => (
+        <a class='rg_item' href={repo} >
+          <img src={baseUrl(localImage)} />
+          <div class='rg_item-content'>{title}</div>
+        </a>
+      ))
+    }
+  </aside>
+</section>
+
+<style>
+  #grid-demo {
+    min-height: 100vh;
+    display: grid;
+    padding: 2.2vmax;
+    gap: 2.2vmax;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(17vmax, 1fr));
+    overflow: hidden;
+  }
+
+  .rg_btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -4.5vmax;
+    z-index: 500;
+    background-color: red;
+    width: 9vmax;
+    height: 9vmax;
+
+    .am-text-button {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 30%;
+      font-size: 1.3vmax;
+    }
+  }
+
+  .rg_item {
+    min-width: 15vmax;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+
+    &:last-child {
+      /* scale: 0.1; */
+      display: none;
+    }
+  }
+
+  .rg_item-content {
+    font-size: 1.2vmax;
+    position: absolute;
+    left: 0.8vmax;
+    bottom: 0.8vmax;
+    z-index: 50;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    border: dashed 0.2vmax var(--color-surface-white);
+  }
+</style>
